@@ -1,15 +1,20 @@
-// Smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
+// Sidebar navigation with smooth section switching
+const links = document.querySelectorAll(".sidebar a");
+const sections = document.querySelectorAll(".section");
+
+links.forEach(link => {
+  link.addEventListener("click", e => {
     e.preventDefault();
-    document.querySelector(this.getAttribute("href"))
-      .scrollIntoView({ behavior: "smooth" });
+
+    // Remove active classes
+    links.forEach(l => l.classList.remove("active"));
+    sections.forEach(s => s.classList.remove("active"));
+
+    // Add active to clicked link & section
+    link.classList.add("active");
+    const target = document.getElementById(link.dataset.section);
+    target.classList.add("active");
   });
 });
 
-// Simple welcome animation
-window.addEventListener("load", () => {
-  document.querySelector(".hero-text").style.opacity = 1;
-  document.querySelector(".hero-text").style.transform = "translateY(0)";
-});
 
