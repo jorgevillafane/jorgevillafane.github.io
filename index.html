@@ -7,43 +7,69 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation -->
   <header>
-    <nav>
-      <h1 class="logo">Jorge Villafañe</h1>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certs">Certifications</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1>Jorge Villafañe</h1>
+      <p>Aspiring Software Engineer | Computer Engineering Student</p>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Future Software Engineer 🚀</h2>
-      <p>Java | HTML | CSS | JavaScript | SQL</p>
-      <a href="#projects" class="btn">View My Work</a>
+  <nav>
+    <div class="container">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
-  </section>
+  </nav>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>
-      Hi, I’m Jorge! I’m a Computer Engineering student passionate about 
-      software development and problem-solving. I enjoy building projects 
-      that combine technology and real-world usability.
-    </p>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>Gym Tracker App</h3>
+  <main>
+    <section id="about" class="container">
+      <h2>About Me</h2>
       <p>
-        A full-stack gym tracki
+        I'm a Computer Engineering student focusing on software development. 
+        Currently learning Java, backend development, and cloud fundamentals. 
+        Preparing for Oracle certifications in AI Foundations, Cloud Foundations, 
+        and Cloud Architect Associate.
+      </p>
+    </section>
+
+    <section id="projects" class="container">
+      <h2>Projects</h2>
+
+      <div class="card">
+        <h3>Gym Tracker App (in progress)</h3>
+        <p>
+          A Java + SQL fitness tracker with features like logging workouts, 
+          building routines, and analyzing training volume.  
+          <em>Currently developing backend in Java.</em>
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Real Estate Manager (class project)</h3>
+        <p>
+          A desktop Java application with a SQL database. 
+          Users can add, edit, and view houses, and export data to CSV. 
+          Built with JFrame for GUI.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:jorge@example.com">jorge@example.com</a></p>
+      <p>
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a> |
+        <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a> |
+        <a href="resume.pdf" target="_blank">Resume (PDF)</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Jorge Villafañe</p>
+  </footer>
+</body>
+</html>
+
 
