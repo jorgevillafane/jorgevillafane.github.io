@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,12 +16,14 @@
     body {
       background: #0f0f0f;
       color: #e0e0e0;
+      overflow: hidden;
     }
 
     /* Container layout */
     .container {
       display: flex;
       height: 100vh;
+      overflow: hidden;
     }
 
     /* Sidebar */
@@ -33,6 +34,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      flex-shrink: 0;
     }
 
     .logo {
@@ -70,6 +72,7 @@
       align-items: center;
       position: relative;
       overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .section {
@@ -439,11 +442,6 @@
           
           projectsLink.classList.add('active');
           projectsSection.classList.add('active');
-          
-          // Scroll to MyHouse detail
-          setTimeout(() => {
-            document.getElementById('myhouse-detail').scrollIntoView({ behavior: 'smooth' });
-          }, 300);
         }
       });
     });
@@ -453,70 +451,3 @@
   </script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jorge L. Villafane Guerra | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-    <!-- Sidebar -->
-    <nav class="sidebar">
-      <h2 class="logo">JL</h2>
-      <ul>
-        <li><a href="#" data-section="home" class="active">Home</a></li>
-        <li><a href="#" data-section="about">About Me</a></li>
-        <li><a href="#" data-section="projects">Projects</a></li>
-        <li><a href="#" data-section="skills">Skills</a></li>
-        <li><a href="#" data-section="contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="content">
-      <section id="home" class="section active">
-        <h1>Jorge L. Villafane Guerra</h1>
-        <p class="subtitle">Aspiring Computer Engineer</p>
-      </section>
-
-      <section id="about" class="section">
-        <h1>About Me</h1>
-        <p>I am a Computer Engineering student at Polytechnic University of Puerto Rico, expected to graduate in May 2027. Passionate about software development, cloud computing, and building impactful projects.</p>
-      </section>
-
-      <section id="projects" class="section">
-        <h1>Projects</h1>
-        <ul>
-          <li><strong>Gym Tracking App</strong> – Full-stack fitness tracker app built with Java, HTML, CSS, and SQL.</li>
-          <li><strong>Real Estate App</strong> – Java & SQL desktop app with CSV export functionality (JFrame-based).</li>
-        </ul>
-      </section>
-
-      <section id="skills" class="section">
-        <h1>Skills</h1>
-        <p><strong>Languages:</strong> Java, C++, HTML, CSS, JavaScript, SQL</p>
-        <p><strong>Tools:</strong> GitHub, Oracle Cloud (in progress), Excel, Word</p>
-      </section>
-
-      <section id="contact" class="section">
-        <h1>Contact</h1>
-        <p>Email: <a href="mailto:villafane_86380@students.pupr.edu">villafane_86380@students.pupr.edu</a></p>
-        <p>Phone: 787-326-6135</p>
-        <p><a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
-      </section>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
-
-
-
-
->>>>>>> ac72d012c296b6bc3e74d72d7173d76a5189cf54
