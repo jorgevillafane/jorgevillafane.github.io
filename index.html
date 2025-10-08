@@ -1,3 +1,459 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jorge L. Villafane Guerra | Portfolio</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #0f0f0f;
+      color: #e0e0e0;
+    }
+
+    /* Container layout */
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #1a1a1a;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: silver;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      margin: 20px 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #bbb;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      color: silver;
+    }
+
+    /* Main content */
+    .content {
+      flex: 1;
+      padding: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow-y: auto;
+    }
+
+    .section {
+      display: none;
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #aaa;
+    }
+
+    /* Project Carousel */
+    .project-carousel {
+      margin-top: 40px;
+      position: relative;
+      padding: 0 50px;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease;
+      gap: 20px;
+    }
+
+    .project-card {
+      min-width: 280px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 25px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #2a2a2a;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(192, 192, 192, 0.1);
+      border-color: silver;
+    }
+
+    .project-card h3 {
+      color: silver;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .project-card p {
+      color: #aaa;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #2a2a2a;
+      border: 1px solid silver;
+      color: silver;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: silver;
+      color: #0f0f0f;
+    }
+
+    .carousel-btn.prev {
+      left: 0;
+    }
+
+    .carousel-btn.next {
+      right: 0;
+    }
+
+    .carousel-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* About section - text align left for better readability */
+    #about p {
+      text-align: left;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    /* Projects section */
+    .project-details {
+      text-align: left;
+      margin-bottom: 30px;
+      padding: 25px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      border: 1px solid #2a2a2a;
+    }
+
+    .project-details h3 {
+      color: silver;
+      margin-bottom: 15px;
+    }
+
+    .project-details p {
+      color: #ccc;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    /* Skills section */
+    #skills p {
+      text-align: left;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .certifications {
+      margin-top: 25px;
+      text-align: left;
+    }
+
+    .certifications h3 {
+      color: silver;
+      margin-bottom: 15px;
+    }
+
+    .certifications ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .certifications li {
+      color: #ccc;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .certifications li:before {
+      content: "✓";
+      color: silver;
+      position: absolute;
+      left: 0;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .sidebar ul {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      .logo {
+        margin-bottom: 15px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .project-carousel {
+        padding: 0 40px;
+      }
+
+      .project-card {
+        min-width: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <h2 class="logo">JL</h2>
+      <ul>
+        <li><a href="#" data-section="home" class="active">Home</a></li>
+        <li><a href="#" data-section="about">About Me</a></li>
+        <li><a href="#" data-section="projects">Projects</a></li>
+        <li><a href="#" data-section="skills">Skills</a></li>
+        <li><a href="#" data-section="contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+      <section id="home" class="section active">
+        <h1>Jorge L. Villafane Guerra</h1>
+        <p class="subtitle">Aspiring Computer Engineer</p>
+        
+        <!-- Project Carousel -->
+        <div class="project-carousel">
+          <button class="carousel-btn prev" id="prevBtn">‹</button>
+          <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+              <div class="project-card" data-project="alzaapr">
+                <h3>ALZAA PR</h3>
+                <p>Full-stack fitness tracker web app (In Development). Bilingual Spanish-first application targeting Puerto Rican users with exercise logging and routine creation.</p>
+              </div>
+              <div class="project-card" data-project="myhouse">
+                <h3>MyHouse App</h3>
+                <p>Real estate management desktop application built with Java Swing and MySQL. Features listing management and CSV export functionality.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-btn next" id="nextBtn">›</button>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <h1>About Me</h1>
+        <p>I am a Computer Engineering student at Polytechnic University of Puerto Rico, expected to graduate in May 2027 with a GPA of 3.59. Passionate about software development, AI & machine learning, and building impactful projects that solve real-world problems.</p>
+        <p>My interests extend beyond technology to include weight training, nature exploration, and staying at the forefront of technology innovation. I am fluent in both English and Spanish, which allows me to develop bilingual solutions for diverse communities.</p>
+        <p><strong>Relevant Coursework:</strong> Data Structures, Advanced Programming, Computer Architecture, Microprocessors, Database Systems, Digital System Design with VHDL, Engineering Economics</p>
+      </section>
+
+      <section id="projects" class="section">
+        <h1>Projects</h1>
+        
+        <div class="project-details" id="myhouse-detail">
+          <h3>MyHouse Real Estate Manager – Java Desktop App</h3>
+          <p>Built with Java Swing (JFrame) and MySQL, this application allows real-estate agents to record, edit, and view housing listings, with built-in CSV export functionality. Collaborated with a teammate to design database tables and improve UI responsiveness.</p>
+          <p><strong>Technologies:</strong> Java, Java Swing (JFrame), MySQL</p>
+        </div>
+
+        <div class="project-details">
+          <h3>ALZAA PR – Full Stack Fitness Tracker Web App (In Development)</h3>
+          <p>Developed a bilingual (Spanish-first) fitness tracking web application targeting Puerto Rican users. Implemented exercise logging, routine creation, and history tracking using Spring Boot, MySQL, and JavaScript. Deployed full stack via Railway, Docker, and GitHub. Strengthened understanding of REST APIs, backend-frontend integration, and deployment pipelines.</p>
+          <p><strong>Technologies:</strong> Spring Boot, MySQL, JavaScript, Docker, Railway, GitHub</p>
+          <p><strong>Link:</strong> <a href="https://alzaapr.vercel.app/" target="_blank" style="color: silver;">Visit ALZAA PR</a></p>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <h1>Skills</h1>
+        <p><strong>Languages:</strong> C++, Java, JavaScript, HTML, CSS, VHDL, SQL</p>
+        <p><strong>Frameworks & Tools:</strong> Spring Boot, Java Swing (JFrame), Docker, Logisim</p>
+        <p><strong>Database:</strong> MySQL</p>
+        <p><strong>Version Control & Deployment:</strong> Git, GitHub, Railway, Render</p>
+        <p><strong>Software:</strong> Microsoft Word, Excel, Vivado, MATLAB</p>
+        <p><strong>Interests:</strong> Software development, AI & machine learning, weight training, nature and technology innovation</p>
+        <p><strong>Spoken Languages:</strong> Fluent in English and Spanish</p>
+        
+        <div class="certifications">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Oracle Cloud Infrastructure 2025 Certified Foundations Associate</li>
+            <li>Oracle Cloud Infrastructure AI Foundations</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h1>Contact</h1>
+        <p>Email: <a href="mailto:villafane_86380@students.pupr.edu" style="color: silver;">villafane_86380@students.pupr.edu</a></p>
+        <p>Phone: 787-326-6135</p>
+        <p><a href="#" style="color: silver;">LinkedIn</a> | <a href="#" style="color: silver;">GitHub</a></p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Sidebar navigation with smooth section switching
+    const links = document.querySelectorAll(".sidebar a");
+    const sections = document.querySelectorAll(".section");
+
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+
+        // Remove active classes
+        links.forEach(l => l.classList.remove("active"));
+        sections.forEach(s => s.classList.remove("active"));
+
+        // Add active to clicked link & section
+        link.classList.add("active");
+        const target = document.getElementById(link.dataset.section);
+        target.classList.add("active");
+      });
+    });
+
+    // Project Carousel
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const cards = document.querySelectorAll('.project-card');
+    
+    let currentIndex = 0;
+    const cardWidth = 300; // 280px width + 20px gap
+
+    function updateCarousel() {
+      const offset = -currentIndex * cardWidth;
+      track.style.transform = `translateX(${offset}px)`;
+      
+      // Update button states
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex >= cards.length - 1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < cards.length - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+
+    // Project card click handlers
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const project = card.dataset.project;
+        
+        if (project === 'alzaapr') {
+          window.open('https://alzaapr.vercel.app/', '_blank');
+        } else if (project === 'myhouse') {
+          // Navigate to projects section
+          links.forEach(l => l.classList.remove("active"));
+          sections.forEach(s => s.classList.remove("active"));
+          
+          const projectsLink = document.querySelector('[data-section="projects"]');
+          const projectsSection = document.getElementById('projects');
+          
+          projectsLink.classList.add('active');
+          projectsSection.classList.add('active');
+          
+          // Scroll to MyHouse detail
+          setTimeout(() => {
+            document.getElementById('myhouse-detail').scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+        }
+      });
+    });
+
+    // Initialize carousel
+    updateCarousel();
+  </script>
+</body>
+</html>
+=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,3 +519,4 @@
 
 
 
+>>>>>>> ac72d012c296b6bc3e74d72d7173d76a5189cf54
